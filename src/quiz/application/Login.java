@@ -10,6 +10,7 @@ public class Login extends JFrame implements ActionListener{
     JTextField tfname;
     
     Login() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
         
@@ -56,7 +57,17 @@ public class Login extends JFrame implements ActionListener{
     
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == rules) {
-            String name = tfname.getText();
+            String name = tfname.getText().trim();
+            if (name.isEmpty()) {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "Masukkan nama sebelum melanjutkan.",
+                    "Nama diperlukan",
+                    JOptionPane.WARNING_MESSAGE
+                );
+                tfname.requestFocus();
+                return;
+            }
             setVisible(false);
             new Rules(name);
         } else if (ae.getSource() == back) {
