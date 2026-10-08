@@ -23,6 +23,10 @@ public class Quiz extends JFrame implements ActionListener {
     
     Quiz(String name) {
         this.name = name;
+        timer = 15;
+        ans_given = 0;
+        count = 0;
+        score = 0;
         setBounds(50, 0, 1440, 850);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -109,7 +113,7 @@ public class Quiz extends JFrame implements ActionListener {
         answers[4][1] = "Carlo Ancelotti";
         answers[5][1] = "Penyerang";
         answers[6][1] = "Camp Nou";
-        answers[7][1] = "90 Menit";
+        answers[7][1] = "90 menit";
         answers[8][1] = "Manchester United";
         answers[9][1] = "Miroslav Klose";
         
